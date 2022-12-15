@@ -10,7 +10,7 @@
       <div class="mb-3">
          <input name="userPassword" type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
       </div>
-      <button type="submit" class="btn btn-primary">로그인</button>
+      <button type="submit" class="btn btn-primary">구매자 로그인</button>
    </form>
 </div>
 

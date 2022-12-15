@@ -14,14 +14,21 @@
 		SELECT * FROM user ORDER BY user_id DESC
 	</select>
 	
+	<!-- 구매자 로그인 -->
 	<select id="login" resultType="site.metacoding.firstapp.domain.User">
 		SELECT * FROM user where user_name=#{userName} AND user_password=#{userPassword}
+	</select>
+	
+	<!-- 관리자 로그인 -->
+	<select id="adminlogin" resultType="site.metacoding.firstapp.domain.User">
+		SELECT * FROM user
+		where user_name=#{userName} AND user_password=#{userPassword} AND role = 'admin'
 	</select>
 
 	<insert id="insert" useGeneratedKeys="true"
 		keyProperty="userId">
-		INSERT INTO user(user_name, user_password, user_email, created_at)
-		VALUES(#{userName}, #{userPassword}, #{userEmail}, NOW())
+		INSERT INTO user(user_name, user_password, user_email, role, created_at)
+		VALUES(#{userName}, #{userPassword}, #{userEmail}, #{role}, NOW())
 	</insert>
 
 	<update id="update">

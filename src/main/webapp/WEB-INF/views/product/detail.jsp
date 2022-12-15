@@ -23,7 +23,7 @@
 					<td>${detail.productPrice}</td>
 					<td>${detail.productQty}</td>
 					<td width="150">
-						<input name="ordersQty" type="number"  min="0" class="form-control">	
+						<input name="ordersQty" type="number"  min="1" class="form-control">	
 					</td>
 				</tr>
 			</tbody>

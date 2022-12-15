@@ -12,7 +12,8 @@ public class JoinDto {
 	private String userEmail;
 
 	public User toEntity() {
-		User user = new User(this.userName, this.userPassword, this.userEmail);
-		return user;
+//		User user = new User(this.userName, this.userPassword, this.userEmail, "user");
+//		return user;
+		return new User(this.userName, this.userPassword, this.userEmail, "user");
 	}
 }
