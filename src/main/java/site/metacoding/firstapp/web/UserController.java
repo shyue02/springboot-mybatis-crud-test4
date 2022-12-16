@@ -30,10 +30,14 @@ public class UserController {
 		User userPS = userDao.login(loginDto);
 		if(userPS != null) {
 			session.setAttribute("principal", userPS);
-			return "redirect:/";
-		} else {
-			return "redirect:/loginForm";
+			System.out.println(loginDto.getUserName());
+			if(userPS.getRole().equals("user")) {
+				System.out.println("user 로그인 성공");
+				return "redirect:/";
+			}
 		}
+		System.out.println("user 로그인 실패");
+		return "redirect:/loginForm";
 	}
 	
 	
