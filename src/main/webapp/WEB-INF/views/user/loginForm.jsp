@@ -11,6 +11,7 @@
          <input name="userPassword" type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
       </div>
       <button type="submit" class="btn btn-primary">구매자 로그인</button>
+      <a class="btn btn-primary" href="/joinForm">구매자 회원가입</a>
    </form>
 </div>
 

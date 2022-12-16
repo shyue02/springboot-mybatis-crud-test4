@@ -29,8 +29,7 @@
 					<li class="nav-item"><a class="nav-link" href="/">상품목록</a>
 					<c:choose>
 						<c:when test="${empty principal}">
-							<li class="nav-item"><a class="nav-link" href="/loginForm">구매자 로그인</a></li>				
-							<li class="nav-item"><a class="nav-link" href="/joinForm">구매자 회원가입</a></li>		
+							<li class="nav-item"><a class="nav-link" href="/loginForm">구매자 로그인</a></li>					
 							<li class="nav-item"><a class="nav-link" href="/adminloginForm">관리자 로그인</a></li>			
 						</c:when>
 						<c:when test="${principal.role == 'user' }">	<!-- 구매자 로그인 시 -->
