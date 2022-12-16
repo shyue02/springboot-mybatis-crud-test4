@@ -12,5 +12,5 @@ public interface UserDao {
     public int update(User user);
     public int deleteById(Integer userId); 
     public User login(LoginDto loginDto);
-    public User adminlogin(AdminLoginDto adminLoginDto);
+    public User adminlogin(AdminLoginDto adminloginDto);
 }

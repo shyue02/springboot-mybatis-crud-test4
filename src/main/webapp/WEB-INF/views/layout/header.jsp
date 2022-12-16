@@ -31,11 +31,14 @@
 						<c:when test="${empty principal}">
 							<li class="nav-item"><a class="nav-link" href="/loginForm">로그인</a></li>				
 							<li class="nav-item"><a class="nav-link" href="/joinForm">구매자 회원가입</a></li>		
-							<li class="nav-item"><a class="nav-link" href="/">관리자 로그인</a></li>			
+							<li class="nav-item"><a class="nav-link" href="/adminloginForm">관리자 로그인</a></li>			
 						</c:when>
-						<c:otherwise>
- 					<!--	<li class="nav-item"><a class="nav-link" href="/product/add">상품등록</a></li>  -->
-							<li class="nav-item"><a class="nav-link" href="/orders/ordersList">구매목록</a></li> 					
+						<c:when test="">	<!-- 구매자 로그인 시 -->
+							<li class="nav-item"><a class="nav-link" href="/orders/ordersList">구매목록</a></li>
+							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li> 									
+						</c:when>
+						<c:otherwise>	<!-- 관리자 로그인 시 -->
+ 							<li class="nav-item"><a class="nav-link" href="/product/add">상품등록</a></li> 
 							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
 						</c:otherwise>
 					</c:choose>	
