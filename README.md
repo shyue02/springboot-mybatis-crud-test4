@@ -3,6 +3,7 @@
 ### 4단계
 - User 테이블에 role 필드 생성 
 → role로 Admin과 User 구별
+- 구매자 로그인 / 관리자 로그인 나누기
 
 ### 테이블 생성
 ```sql
@@ -19,6 +20,7 @@ create table user(
 	user_name VARCHAR(20) NOT null,
 	user_password VARCHAR(20) NOT null,
 	user_email VARCHAR(20) NOT null,
+	role VARCHAR(20) NOT null,
 	created_at TIMESTAMP NOT null
 );
 
@@ -38,8 +40,9 @@ create table orders(
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('바나나', 3000, 98, NOW());
 INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES('딸기', 2000, 100, NOW());
 
-INSERT INTO user(user_name, user_password, user_email, created_at) VALUES ('ssar', '1234', 'ssar@nate.com', NOW());
-INSERT INTO user(user_name, user_password, user_email, created_at) VALUES ('kaka', '2345', 'kaka@nate.com', NOW());
+INSERT INTO user(user_name, user_password, user_email, role, created_at) VALUES ('ssar', '1234', 'ssar@nate.com', 'user', NOW());
+INSERT INTO user(user_name, user_password, user_email, role, created_at) VALUES ('kaka', '1234', 'kaka@nate.com', 'user', NOW());
+INSERT INTO user(user_name, user_password, user_email, role, created_at) VALUES ('admin', '1234', 'admin@nate.com', 'admin', NOW());
 
 INSERT INTO orders(orders_name, orders_price, orders_qty, product_id, user_id, created_at) VALUES ('바나나', 3000, 2, 1, 1, NOW());
 INSERT INTO orders(orders_name, orders_price, orders_qty, product_id, user_id, created_at)  VALUES ('딸기', 2000, 5, 2, 2, NOW());
