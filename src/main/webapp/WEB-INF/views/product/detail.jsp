@@ -14,7 +14,9 @@
 					<th>상품명</th>
 					<th>상품가격</th>
 					<th>상품수량</th>
-					<th>구매수량</th>
+					<c:if test="${principal.role == 'user'}">
+						<th>구매수량</th>
+					</c:if>
 			 	</tr>
 			</thead>
 			<tbody>
@@ -22,21 +24,25 @@
 					<td>${detail.productName}</td>
 					<td>${detail.productPrice}</td>
 					<td>${detail.productQty}</td>
-					<td width="150">
-						<input name="ordersQty" type="number"  min="1" class="form-control">	
-					</td>
+					<c:if test="${principal.role == 'user'}">
+						<td width="150">
+							<input name="ordersQty" type="number"  min="1" class="form-control">	
+						</td>
+					</c:if>
 				</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-primary">구매하기</button>
+		<c:if test="${principal.role == 'user'}">
+			<button type="submit" class="btn btn-primary">구매하기</button>
+		</c:if>
 	</form>
 	<div class="d-flex">
-	<!-- 
-		<a href="/product/${detail.productId}/edit" class="btn btn-warning">상품수정</a>
-		<form action="/product/${detail.productId}/delete" method="post">
-			<button id="btnDelete" type="submit"  class="btn btn-danger">상품삭제</button>
-		</form>
-		 -->
+		<c:if test="${principal.role == 'admin' }">
+				<a href="/product/${detail.productId}/edit" class="btn btn-warning">상품수정</a>
+				<form action="/product/${detail.productId}/delete" method="post">
+					<button id="btnDelete" type="submit"  class="btn btn-danger">상품삭제</button>
+				</form>
+		</c:if>
 	</div>
 </div>
 
