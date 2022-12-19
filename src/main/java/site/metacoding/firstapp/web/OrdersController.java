@@ -25,6 +25,7 @@ public class OrdersController {
 	private final OrdersDao ordersDao;
 	private final ProductDao productDao;
 
+	// 상품 구매 목록
 	@GetMapping("/orders/ordersList")
 	public String ordersListForm(Model model) {
 		User principal = (User) session.getAttribute("principal");
@@ -36,6 +37,7 @@ public class OrdersController {
 		return "orders/ordersList";
 	}
 	
+	// 상품 구매하기
 	@PostMapping("/orders/{productId}")
 	public String ordersList(@PathVariable Integer productId, OrdersDto ordersDto) {
 		User principal = (User) session.getAttribute("principal");
