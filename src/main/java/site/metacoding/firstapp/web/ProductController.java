@@ -74,7 +74,12 @@ public class ProductController {
 	@GetMapping("/product/{productId}/edit")
 	public String updateForm(@PathVariable Integer productId, Product product, Model model) {
 		model.addAttribute("edit", productDao.findById(productId));
-		return "product/edit";
+			
+		User principal = (User) session.getAttribute("principal");
+		if(principal.getRole().equals("admin")){
+			return "product/edit";
+		}
+		return "redirect:/product/{productId}";
 	}
 	
 	//상품수정하기 - update
